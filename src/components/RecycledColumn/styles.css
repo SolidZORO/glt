@@ -1,0 +1,9 @@
+.recycled-column {
+  position: absolute;
+  top: 0;
+  left: 0;
+}
+
+.recycled-column-items {
+  position: relative;
+}

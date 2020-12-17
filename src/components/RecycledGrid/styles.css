@@ -1,0 +1,9 @@
+.recycled-grid {
+  position: absolute;
+  top: 0;
+  left: 0;
+}
+
+.recycled-grid-items {
+  position: relative;
+}

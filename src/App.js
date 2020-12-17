@@ -1,10 +1,11 @@
-import { DemoButton, Datatable } from '@/components';
+import Grid from './components/Grid/Grid';
+import ScrollContainer from './components/ScrollContainer/ScrollContainer';
 
 function App() {
   return (
-    <div className="App">
-      <DemoButton text="Demo" />
-      <Datatable />
+    <div className="app-container">
+      <Grid />
+      <ScrollContainer />
     </div>
   );
 }

@@ -14,7 +14,7 @@ export default class CoordsCalculator {
     bufferFactor,
     marginFactor,
   }) {
-    this.changeSubject = new ReplaySubject(1);
+    this.changeSubject$ = new ReplaySubject(1);
     this.resizeSubject = resizeSubject;
     this.scrollSubject = scrollSubject;
 
@@ -43,7 +43,7 @@ export default class CoordsCalculator {
       // set the mapping to be the same
       this.coordinates.updateIndices(0, this.coordinates.size - 1);
 
-      this.changeSubject.next({
+      this.changeSubject$.next({
         headIndex: 0,
         tailIndex: this.coordinates.size - 1,
         changes: this.coordinates.array.map((val, idx) => ({ val, idx })),
@@ -98,6 +98,6 @@ export default class CoordsCalculator {
         }),
         Ops.filter(({ changes }) => changes.length > 0),
       )
-      .subscribe((payload) => this.changeSubject.next(payload));
+      .subscribe((payload) => this.changeSubject$.next(payload));
   }
 }
