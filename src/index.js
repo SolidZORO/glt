@@ -1,8 +1,18 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
-import './index.css';
+
+import { resizeSubject$ } from './utils/subjects';
 import App from './App';
 import reportWebVitals from './reportWebVitals';
+
+import './index.css';
+
+const resize = () => {
+  resizeSubject$.next({ width: window.innerWidth, height: window.innerHeight });
+};
+
+window.addEventListener('resize', resize);
+resize();
 
 ReactDOM.render(
   <React.StrictMode>

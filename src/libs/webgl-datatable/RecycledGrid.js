@@ -1,7 +1,7 @@
 import { Container } from 'pixi.js';
 import * as Ops from 'rxjs/operators';
 
-import CircularArray from './CircularArray';
+import CircularArray from '../../utils/CircularArray';
 import { cellHeight } from './consts';
 import RecycledRow from './RecycledRow';
 

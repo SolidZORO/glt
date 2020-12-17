@@ -61,14 +61,6 @@ const yCoordsCalc = new CoordsCalculator({
 });
 yCoordsCalc.changeSubject.subscribe((y) => console.log('y coords change', y));
 
-const resize = () => {
-  app.renderer.resize(window.innerWidth, window.innerHeight);
-  resizeSubject.next({ width: window.innerWidth, height: window.innerHeight });
-};
-
-window.addEventListener('resize', resize);
-resize();
-
 const onAssetsLoaded = () => {
   /**
    * Initialize grid

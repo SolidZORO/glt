@@ -1,7 +1,7 @@
 import { ReplaySubject, combineLatest } from 'rxjs';
 import * as Ops from 'rxjs/operators';
 
-import CircularArray from './CircularArray';
+import CircularArray from '../../utils/CircularArray';
 
 export default class CoordsCalculator {
   constructor({
