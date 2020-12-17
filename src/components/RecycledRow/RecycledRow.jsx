@@ -32,19 +32,23 @@ export default function RecycledRow(props) {
       });
       // handle scroll left
       const scrollSubscription = scrollSubject$.subscribe(({ scrollLeft }) => {
-        setX((originalX) => originalX - scrollLeft);
+        setX((props.initialX || 0) - scrollLeft);
       });
       // subscribe updates
       const changeSubscription = xCoordsCalc.changeSubject$
         .pipe(Ops.skip(1))
-        .subscribe(({ headIndex, tailIndex, changes }) => {
-          changes.forEach(({ idx, val }) => {
-            const cell = cells[idx];
-            cell.x = val;
-            const cellData = props.cellData[Math.floor(val / cellWidth)];
-            if (cellData) {
-              cell.text = cellData;
-            }
+        .subscribe(({ changes }) => {
+          setCells((currentCells) => {
+            changes.forEach(({ idx, val }) => {
+              const cell = currentCells[idx];
+              cell.x = val;
+              const cellData = props.cellData[Math.floor(val / cellWidth)];
+              if (cellData) {
+                cell.text = cellData;
+              }
+            });
+
+            return currentCells;
           });
       });
 
