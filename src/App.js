@@ -1,5 +1,6 @@
 import { DemoButton, Datatable } from '@/components';
 import Cell from './components/Cell/Cell';
+import ScrollContainer from './components/ScrollContainer/ScrollContainer';
 
 function App() {
   return (
@@ -7,6 +8,7 @@ function App() {
       {/* <DemoButton text="Demo" />
       <Datatable /> */}
       <Cell />
+      <ScrollContainer />
     </div>
   );
 }

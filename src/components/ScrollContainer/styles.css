@@ -1,0 +1,24 @@
+.app-container {
+  height: 100vh;
+  position: relative;
+  width: 100vw;
+}
+
+.scroll-wrapper {
+  background-color: #ffffea;
+  position: absolute;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  overflow: scroll;
+}
+
+.scroll-container {
+  background-color: #eafffc;
+  position: absolute;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+}
