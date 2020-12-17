@@ -1,0 +1,65 @@
+* {
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+}
+
+body {
+  background-color: #222;
+  color: white;
+  font-family: sans-serif;
+  overflow: hidden;
+}
+
+.intro {
+  margin: 1rem;
+}
+
+.app-container {
+  height: 100vh;
+  position: relative;
+  width: 100vw;
+}
+
+.scroll-wrapper {
+  position: absolute;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+}
+
+.scroll-container {
+  position: absolute;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+}
+
+.scroll-wrapper {
+  overflow: scroll;
+}
+
+.cell-input {
+  display: none;
+  border: dodgerblue 2px solid;
+  background-color: #fff;
+  color: #222;
+  font-size: 12px;
+  position: absolute;
+  text-align: center;
+}
+
+.cell-input::-ms-clear {
+  display: none;
+}
+
+.loader {
+  color: white;
+  padding: 10px;
+  position: absolute;
+  top: 0;
+  left: 0;
+  pointer-events: none;
+}

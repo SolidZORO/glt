@@ -1,4 +1,5 @@
 .comp-wrapper--demo-button {
+  display: block;
 }
 
 .comp-wrapper--demo-button button {
