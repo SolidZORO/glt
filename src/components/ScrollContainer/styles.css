@@ -5,7 +5,6 @@
 }
 
 .scroll-wrapper {
-  background-color: #ffffea;
   position: absolute;
   top: 0;
   right: 0;
@@ -15,7 +14,6 @@
 }
 
 .scroll-container {
-  background-color: #eafffc;
   position: absolute;
   top: 0;
   right: 0;

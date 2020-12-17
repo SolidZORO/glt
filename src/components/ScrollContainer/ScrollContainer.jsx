@@ -33,8 +33,6 @@ export default function ScrollContainer(props) {
     scrollWrapper.addEventListener('scroll', (e) => {
       const { scrollLeft, scrollTop } = e.target;
       scrollSubject$.next({ scrollLeft, scrollTop });
-
-      console.log({ scrollLeft, scrollTop });
     });
   };
 

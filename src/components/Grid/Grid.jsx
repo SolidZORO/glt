@@ -1,23 +1,26 @@
-import React, { useRef, useEffect } from 'react';
-import cx from 'classnames';
+import React, { useState, useEffect } from 'react';
+
+import { columns } from '../../utils/consts';
+import RecycledRow from '../RecycledRow/RecycledRow';
 
 // import './styles.css';
 
 export default function Grid(props) {
-  const webglAppRef = useRef(null);
+  const [headers, setHeaders] = useState([]);
+
+  useEffect(() => {
+    const headers = [];
+
+    for (let i = 0; i < columns; i++) {
+      headers.push(`Header ${i + 1}`);
+    }
+
+    setHeaders(headers);
+  }, []);
 
   return (
-    <div
-      ref={webglAppRef}
-      className={cx('comp-wrapper--demo-datatable', 'app-container', props.className)}
-      style={props.style}
-    >
-      <div className="canvas-container" />
-      <div className="scroll-wrapper">
-        <div className="scroll-container"></div>
-        <input type="text" className="cell-input" />
-      </div>
-      <div className="loader">Loading...</div>
+    <div className="grid">
+      <RecycledRow cellData={headers} />
     </div>
   );
 }
