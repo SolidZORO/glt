@@ -9,18 +9,30 @@ import { xCoordsCalc, scrollSubject$ } from '../../utils/subjects';
 import './styles.css';
 
 export default function RecycledRow(props) {
-  const [x, setX] = useState(0);
-  const [y, setY] = useState(0);
+  const [x, setX] = useState(props.initialX);
   const [width, setWidth] = useState(columns * cellWidth);
-  const [height, setHeight] = useState(cellHeight);
 
   const [cells, setCells] = useState([]);
+
+  const [init, setInit] = useState(false);
+
+  useEffect(() => {
+    setCells((originalCells) => {
+      originalCells.forEach((cell) => {
+        cell.text = props.cellData[Math.floor(cell.x / cellWidth)];
+      });
+
+      return originalCells;
+    });
+
+    setInit(true);
+  }, [props.cellData]);
 
   useEffect(() => {
     // create initial cells
     xCoordsCalc.changeSubject$
       .pipe(Ops.take(1))
-      .subscribe(({ headIndex, tailIndex, changes }) => {
+      .subscribe(({ changes }) => {
         setCells(changes.map(({ idx, val }) => {
           const cell = {
             x: val,
@@ -56,13 +68,15 @@ export default function RecycledRow(props) {
         scrollSubscription.unsubscribe();
         changeSubscription.unsubscribe();
       };
-  }, [props.cellData]);
+  }, [init, props.initialX]);
+
 
   return (
     <div
       className="recycled-row"
       style={{
-        transform: `translate(${x}px, ${y}px)`,
+        ...props.style,
+        transform: `translate(${x}px, ${props.y || 0}px)`,
         width: `${width}px`,
         height: `${cellHeight}px`
       }}

@@ -3,7 +3,7 @@ import ScrollContainer from './components/ScrollContainer/ScrollContainer';
 
 function App() {
   return (
-    <div className="App">
+    <div className="app-container">
       <Grid />
       <ScrollContainer />
     </div>
