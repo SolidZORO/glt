@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import * as Ops from 'rxjs/operators';
+import { observer } from 'mobx-react-lite'
 
 import { rows as rowCount, columns, cellHeight, cellWidth } from '../../utils/consts';
 import { yCoordsCalc, scrollSubject$ } from '../../utils/subjects';
@@ -7,7 +8,7 @@ import { yCoordsCalc, scrollSubject$ } from '../../utils/subjects';
 import './styles.css';
 import RecycledRow from '../RecycledRow/RecycledRow';
 
-export default function RecycledGrid(props) {
+function RecycledGrid(props) {
   const [x, setX] = useState(props.initialX);
   const [y, setY] = useState(props.initialY);
   const [width, setWidth] = useState(columns * cellWidth);
@@ -74,3 +75,5 @@ export default function RecycledGrid(props) {
     </div>
   );
 }
+
+export default observer(RecycledGrid);

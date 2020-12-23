@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import * as Ops from 'rxjs/operators';
+import { observer } from 'mobx-react-lite';
 
 import Cell from '../Cell/Cell';
 
@@ -8,7 +9,7 @@ import { xCoordsCalc, scrollSubject$ } from '../../utils/subjects';
 
 import './styles.css';
 
-export default function RecycledRow(props) {
+function RecycledRow(props) {
   const [x, setX] = useState(props.initialX);
   const [width, setWidth] = useState(columns * cellWidth);
 
@@ -89,3 +90,5 @@ export default function RecycledRow(props) {
     </div>
   );
 }
+
+export default observer(RecycledRow);
